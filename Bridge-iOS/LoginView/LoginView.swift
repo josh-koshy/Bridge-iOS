@@ -12,7 +12,7 @@ import AuthenticationServices
 import SafariServices
 
 struct LoginView: View {
-    
+
     // this enum is to track each field on the login page
     enum LoginDetails {
         case name
@@ -24,12 +24,14 @@ struct LoginView: View {
         case email, password, birthday, username
     }
     
+    @EnvironmentObject var userAuthManager: UserAuthManager
+    
     @Environment(\.colorScheme) var colorScheme
     @FocusState private var focusedField: LoginDetails?
     @StateObject private var viewModel = LoginViewModel()
-    @StateObject private var userAuthManager = UserAuthManager()
     
     var body: some View {
+        NavigationView {
         VStack() {
             if !userAuthManager.isUserSignedIn {
                 HStack {
@@ -38,7 +40,7 @@ struct LoginView: View {
                     ) // Adjust this width to match the Help button's width
                     
                     Button(action: {
-                            print("Helped Pressed")
+                        print("Helped Pressed")
                     }, label: {
                         Text("Help")
                             .font(Font.custom("Inter-Medium", size: 16.0))
@@ -52,7 +54,7 @@ struct LoginView: View {
                     Text("Bridge at SU")
                         .font(Font.custom("Inter-Black", size: 22.0))
                         .foregroundStyle(colorScheme == .light ? .pink : .white)
-                        
+                    
                         .frame(maxWidth: .infinity, alignment: .center), alignment: .center
                 )
                 .padding(.top, 5.0)
@@ -64,35 +66,35 @@ struct LoginView: View {
                  */
                 
                 if viewModel.loginMode {
-                                if viewModel.showPasswordField {
-                                    Text("What's Your Password?")
-                                        .transition(.blurReplace)
-                                        .font(Font.custom("Inter-Bold", size: 18.0))
-                                        .padding(15.0)
-                                        .padding(.top, 10)
-                                } else {
-                                    Text("What's Your Email Address?")
-                                        .transition(.blurReplace)
-                                        .font(Font.custom("Inter-Bold", size: 18.0))
-                                        .padding(15.0)
-                                        .padding(.top, 10)
-                                }
-                            } else {
-                                if viewModel.showPasswordField {
-                                    Text("Now Create a Password")
-                                        .transition(.blurReplace)
-                                        .font(Font.custom("Inter-Bold", size: 18.0))
-                                        .padding(15.0)
-                                        .padding(.top, 10)
-                                } else {
-                                    Text("Hey, Let's Make an Account!")
-                                        .transition(.blurReplace)
-                                        .font(Font.custom("Inter-Bold", size: 18.0))
-                                        .padding(15.0)
-                                        .padding(.top, 10)
-                                }
-                            }
-
+                    if viewModel.showPasswordField {
+                        Text("What's Your Password?")
+                            .transition(.blurReplace)
+                            .font(Font.custom("Inter-Bold", size: 18.0))
+                            .padding(15.0)
+                            .padding(.top, 10)
+                    } else {
+                        Text("What's Your Email Address?")
+                            .transition(.blurReplace)
+                            .font(Font.custom("Inter-Bold", size: 18.0))
+                            .padding(15.0)
+                            .padding(.top, 10)
+                    }
+                } else {
+                    if viewModel.showPasswordField {
+                        Text("Now Create a Password")
+                            .transition(.blurReplace)
+                            .font(Font.custom("Inter-Bold", size: 18.0))
+                            .padding(15.0)
+                            .padding(.top, 10)
+                    } else {
+                        Text("Hey, Let's Make an Account!")
+                            .transition(.blurReplace)
+                            .font(Font.custom("Inter-Bold", size: 18.0))
+                            .padding(15.0)
+                            .padding(.top, 10)
+                    }
+                }
+                
                 CustomTextFieldView(text: $viewModel.username, placeholder: "Email", showPasswordField: $viewModel.showPasswordField, viewModel: viewModel, secure: false, toolbarButtonText: "Next")
                     .frame(width: UIScreen.main.bounds.width - 40, height: 45) // Adjust width as needed
                     .disabled(viewModel.showPasswordField)
@@ -222,7 +224,7 @@ struct LoginView: View {
             }
         }
     }
-    
+    }
 }
 
 

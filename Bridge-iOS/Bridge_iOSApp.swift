@@ -73,13 +73,16 @@ extension AppDelegate: MessagingDelegate, UNUserNotificationCenterDelegate {
 
 @main
 struct Bridge_iOSApp: App {
+    @StateObject var userAuthManager = UserAuthManager()
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                SplashScreenView()            }
+                //SplashScreenView()
+                SplashScreenView().environmentObject(userAuthManager)
+            }
         }
     }
 }

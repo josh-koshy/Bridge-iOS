@@ -11,7 +11,8 @@ import Firebase
 
 
 struct MainView: View {
-    @StateObject private var userAuthManager = UserAuthManager()
+    @EnvironmentObject var userAuthManager: UserAuthManager
+
     @StateObject private var loginViewModel = LoginViewModel()
     @StateObject private var viewModel = MainViewModel()
     
@@ -52,6 +53,8 @@ struct MainView: View {
                                     .font(Font.custom("Inter-Medium", size: 16.0))
                                     .foregroundStyle(Color.red)
                             })
+                            Divider()
+                            NavigationLink("View Live Signups", destination: MessageStreamView())
                             
                         }
                         

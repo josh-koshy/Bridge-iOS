@@ -14,22 +14,21 @@ struct SplashScreenView: View {
     @State private var showMainView = false // State to control the view transition
     @State private var timer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
     @State private var counter = 0
-    @StateObject private var userAuthManager = UserAuthManager()
+    @EnvironmentObject var userAuthManager: UserAuthManager
     var body: some View {
         ZStack {
             if showMainView {
-                
                 // Choose the view based on the user's signed-in status
-                if userAuthManager.isUserSignedIn {
-                    MainView()
-                        .transition(.blurReplace)
-                } else {
-                    LoginView()
-                        .transition(.blurReplace)
+                Group {
+                    if userAuthManager.isUserSignedIn {
+                        MainView()
+                    } else {
+                        LoginView()
+                    }
                 }
+                .transition(.blurReplace) // Use opacity for smoother transition
             } else {
                 splashScreenContent
-                    .transition(.opacity)
             }
         }
         .onReceive(timer) { _ in

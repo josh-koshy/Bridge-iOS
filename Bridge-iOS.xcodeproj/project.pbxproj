@@ -52,6 +52,10 @@
 		0314D0802B6C139700220058 /* UserAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0314D07B2B6C139700220058 /* UserAuthManager.swift */; };
 		0314D0812B6C139700220058 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0314D07C2B6C139700220058 /* LoginView.swift */; };
 		0314D0822B6C139700220058 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0314D07D2B6C139700220058 /* LoginViewModel.swift */; };
+		037A46CA2B6C3D0A0055E3DF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A46C92B6C3D0A0055E3DF /* User.swift */; };
+		037A46CC2B6C3D4C0055E3DF /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A46CB2B6C3D4C0055E3DF /* UserView.swift */; };
+		037A46CE2B6C42710055E3DF /* UserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A46CD2B6C42710055E3DF /* UserDetail.swift */; };
+		03B7CC7A2B6C2B86006E99D4 /* MessageStreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B7CC792B6C2B86006E99D4 /* MessageStreamView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +86,10 @@
 		0314D0852B6C161900220058 /* Bridge-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Bridge-iOS.entitlements"; sourceTree = "<group>"; };
 		0314D08A2B6C1AD500220058 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		0314D08B2B6C1AED00220058 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		037A46C92B6C3D0A0055E3DF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		037A46CB2B6C3D4C0055E3DF /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		037A46CD2B6C42710055E3DF /* UserDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetail.swift; sourceTree = "<group>"; };
+		03B7CC792B6C2B86006E99D4 /* MessageStreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStreamView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,10 +149,14 @@
 			children = (
 				0314D0732B6C136300220058 /* Inter */,
 				0314D0862B6C17FB00220058 /* LoginView */,
+				03B7CC792B6C2B86006E99D4 /* MessageStreamView.swift */,
 				0314D0872B6C181000220058 /* MainView */,
 				0314D0222B6C108200220058 /* HapticManagement.swift */,
 				0314D0102B6C103300220058 /* Bridge_iOSApp.swift */,
+				037A46CD2B6C42710055E3DF /* UserDetail.swift */,
 				0314D05D2B6C12DC00220058 /* SplashScreenView.swift */,
+				037A46C92B6C3D0A0055E3DF /* User.swift */,
+				037A46CB2B6C3D4C0055E3DF /* UserView.swift */,
 				0314D05B2B6C119E00220058 /* GoogleService-Info.plist */,
 				0314D02A2B6C10B400220058 /* Assets.xcassets */,
 				0314D0852B6C161900220058 /* Bridge-iOS.entitlements */,
@@ -316,13 +328,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				0314D0772B6C137A00220058 /* MainViewModel.swift in Sources */,
+				037A46CE2B6C42710055E3DF /* UserDetail.swift in Sources */,
 				0314D0282B6C108200220058 /* HapticManagement.swift in Sources */,
 				0314D07E2B6C139700220058 /* CustomTextField.swift in Sources */,
 				0314D0812B6C139700220058 /* LoginView.swift in Sources */,
 				0314D07F2B6C139700220058 /* CustomTextFieldView.swift in Sources */,
 				0314D0802B6C139700220058 /* UserAuthManager.swift in Sources */,
 				0314D0762B6C137A00220058 /* MainView.swift in Sources */,
+				03B7CC7A2B6C2B86006E99D4 /* MessageStreamView.swift in Sources */,
+				037A46CA2B6C3D0A0055E3DF /* User.swift in Sources */,
 				0314D0112B6C103300220058 /* Bridge_iOSApp.swift in Sources */,
+				037A46CC2B6C3D4C0055E3DF /* UserView.swift in Sources */,
 				0314D0822B6C139700220058 /* LoginViewModel.swift in Sources */,
 				0314D05E2B6C12DC00220058 /* SplashScreenView.swift in Sources */,
 			);
@@ -388,6 +404,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -444,6 +461,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
